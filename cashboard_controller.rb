@@ -46,5 +46,10 @@ end
 
 post '/transactions' do
   Transaction.new(params).save
-  erb(:"/transactions/confirmation_new")
+  redirect to("/transactions")
+end
+
+post '/transactions/:id/delete' do
+  Transaction.delete(params[:id])
+  redirect to("/transactions")
 end
