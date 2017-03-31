@@ -1,0 +1,13 @@
+<h1> A list of all the transactions </h1>
+
+<% @transactions.each do |transaction| %>
+<p> Merchant id: <%= transaction.merchant_id  %> </p>
+<p> Tag id: <%= transaction.tag_id  %> </p>
+<p> Value: £<%=transaction.value  %>
+<p> Description: <%=transaction.description  %></p>
+<hr/>
+
+<% end %>
+
+<button> <a href="/transactions/new">Add a new transaction</a>
+</button>

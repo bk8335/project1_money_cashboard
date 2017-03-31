@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Benny's Brilliant Budgeting Build</title>
+</head>
+<body>
+  <nav>
+    <ul>
+      <li>Total spending</li>
+      <li> <a href="/transactions"> All transactions</a></li>
+      <li><a href="/merchants">All merchants</a></li>
+      <li><a href="/tags">All tags</a></li>
+    </ul>
+    <ul>
+      <li><a href="/transactions/new">Add a new transaction</a></li>
+      <li><a href="/merchants/new">Add a new merchant</a></li>
+      <li><a href="/tags/new">Add a new tag</a></li>
+    </ul>
+  </nav>
+  <%= yield %>
+</body>
+</html>

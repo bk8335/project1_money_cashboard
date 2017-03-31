@@ -1,0 +1,9 @@
+<h1> List of all tags </h1>
+
+<% @tags.each do |tag| %>
+  <p> Name: <%= tag.name  %> </p>
+  <p> ID: <%= tag.id  %>
+  <hr/>
+<% end %>
+
+<button><a href="/tags/new">Add a new tag</a></button>
