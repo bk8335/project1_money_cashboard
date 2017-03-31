@@ -3,6 +3,10 @@
 <% @tags.each do |tag| %>
   <p> Name: <%= tag.name  %> </p>
   <p> ID: <%= tag.id  %>
+  <form action="/tags/<%=tag.id%>/delete" method="post">
+    <input type="submit" value="delete" />
+  </form>
+
   <hr/>
 <% end %>
 

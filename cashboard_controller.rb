@@ -19,6 +19,11 @@ post '/merchants' do
   erb(:"merchants/confirmation_new")
 end
 
+post '/merchant/:id/delete' do
+  Merchant.delete(params[:id])
+  redirect to("/merchants")
+end
+
 get '/tags' do
   @tags = Tag.all()
   erb(:"tags/index")
@@ -31,6 +36,11 @@ end
 post '/tags' do
   Tag.new(params).save
   erb(:"tags/confirmation_new")
+end
+
+post '/tags/:id/delete' do
+  Tag.delete(params[:id])
+  redirect to('/tags')
 end
 
 get '/transactions' do
