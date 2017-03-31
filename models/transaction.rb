@@ -24,6 +24,11 @@ class Transaction
     return result.map {|transaction| Transaction.new(transaction) }
   end
 
+  def self.delete(id)
+    sql = "DELETE FROM transactions WHERE id = #{id}"
+    return SqlRunner.run(sql)
+  end
+
   def self.delete_all()
     sql = "DELETE FROM transactions"
     SqlRunner.run(sql)

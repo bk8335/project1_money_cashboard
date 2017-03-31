@@ -6,7 +6,7 @@
 <label for="transaction-description"> Description: </label>
 <input id="transaction-description" type="text" name="description"/>
 </p>
-  
+
 <p>Select a merchant
   <label>
     <select name="merchant_id">
@@ -15,16 +15,18 @@
       <% end %>
     </select>
   </label>
+  <button><a href="/merchants/new">Add a new merchant</a></button>
 </p>
 
 <p>Select a tag for the transaction
-<label>
-  <select name="tag_id">
-  <% for tag in @tags %>
-  <option value="<%=tag.id%>"> <%=tag.name%> </option>
-  <% end %>
-  </select>
-</label>
+  <label>
+    <select name="tag_id">
+    <% for tag in @tags %>
+    <option value="<%=tag.id%>"> <%=tag.name%> </option>
+    <% end %>
+    </select>
+  </label>
+  <button><a href="/tags/new">Add a new tag</a></button>
 </p>
 
 

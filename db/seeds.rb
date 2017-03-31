@@ -23,3 +23,7 @@ transaction1.save
 transaction2 = Transaction.new('merchant_id' => merchant2.id, 'tag_id' => tag2.id, 'value' => 22.47, 'description' => 'round of beers' )
 transaction2.save
 
+binding.pry
+
+return nil
+
