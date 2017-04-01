@@ -17,7 +17,6 @@ class Transaction
     sql = "INSERT INTO transactions (merchant_id, tag_id, value, description) VALUES (#{@merchant_id}, #{@tag_id}, #{@value}, '#{@description}') RETURNING *"
     result = SqlRunner.run(sql)
     @id = result.first()['id'].to_i
-    # @start_point += @value
   end
 
   def self.all()
