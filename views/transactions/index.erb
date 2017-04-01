@@ -1,18 +1,41 @@
 <h1> A list of all the transactions </h1>
 
-<% @transactions.each do |transaction| %>
-<p> Merchant id: <%= transaction.merchant_id  %> </p>
-<p> Tag id: <%= transaction.tag_id  %> </p>
-<p> Value: £<%=transaction.value  %>
-<p> Description: <%=transaction.description  %></p>
-<form action="/transactions/<%=transaction.id%>/delete" method="post">
-  <input type="submit" value="delete"/>
-</form>
-<form action="/transactions/<%=transaction.id%>/edit" method="get">
-  <input type="submit" value="edit">
-</form>
-<hr/>
-<% end %>
+<table>
+  <tr>
+    <th>Description</th>
+    <th></th>
+    <th>Value</th>
+    <th></th>
+    <th>Merchant(id)</th>
+    <th></th>
+    <th>Tag(id)</th>
+  </tr>
+  <% @transactions.each do |transaction| %>
+  <tr>
+    <td><%=transaction.description%></td>
+    <td></td>
+    <td>£<%=transaction.value%></td>
+    <td></td>
+    <td><%=transaction.merchant_id%></td>
+    <td></td>
+    <td><%=transaction.tag_id%></td>
+    <td></td>
+    <td>
+      <form action="/transactions/<%=transaction.id%>/edit" method="get">
+      <input type="submit" value="edit">
+      </form>
+    </td>
+    <td></td>
+    <td>
+      <form action="/transactions/<%=transaction.id%>/delete" method="post">
+      <input type="submit" value="delete"/>
+      </form>
+    </td>
+  </tr>
+  <tr></tr>
+  <% end %>
+</table>
+
 
 <button> <a href="/transactions/new">Add a new transaction</a>
 </button>
