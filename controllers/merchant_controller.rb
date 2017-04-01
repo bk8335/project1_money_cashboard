@@ -13,7 +13,8 @@ get '/merchants/new' do
 end
 
 post '/merchants' do
-  Merchant.new(params).save
+  @merchant = Merchant.new(params)
+  @merchant.save
   erb(:"merchants/confirmation_new")
 end
 
