@@ -1,11 +1,14 @@
 require_relative('../models/merchant')
 require_relative('../models/tag')
 require_relative('../models/transaction')
+require_relative('../models/total')
 require('pry')
 
 Transaction.delete_all
 Merchant.delete_all
 Tag.delete_all
+
+total = Total.new(0)
 
 merchant1 = Merchant.new('name' => 'Tesco')
 merchant2 = Merchant.new('name' => 'Footlights')
@@ -23,7 +26,13 @@ transaction1.save
 transaction2 = Transaction.new('merchant_id' => merchant2.id, 'tag_id' => tag2.id, 'value' => 22.47, 'description' => 'round of beers' )
 transaction2.save
 
-binding.pry
+transaction3 = Transaction.new('merchant_id' => merchant2.id, 'tag_id' => tag2.id, 'value' => 14.89, 'description' => 'tequila' )
+transaction3.save
 
+for a_transaction in Transaction.all()
+  total.total_value += a_transaction.value
+end
+
+binding.pry
 return nil
 
