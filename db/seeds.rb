@@ -29,9 +29,8 @@ transaction2.save
 transaction3 = Transaction.new('merchant_id' => merchant2.id, 'tag_id' => tag2.id, 'value' => 14.89, 'description' => 'tequila' )
 transaction3.save
 
-for a_transaction in Transaction.all()
-  total.total_value += a_transaction.value
-end
+transaction3.description = "jagerbombs"
+transaction3.update
 
 binding.pry
 return nil
