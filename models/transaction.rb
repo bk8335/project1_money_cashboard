@@ -26,12 +26,12 @@ class Transaction
       tag_id = #{@tag_id},
       value = #{@value}, 
       description = '#{@description}'
-      WHERE id=#{@id}"
+      WHERE id=#{id}"
     SqlRunner.run(sql)
   end
 
   def self.find(id)
-    sql = "SELECT * FROM transactions * WHERE id = #{@id}"
+    sql = "SELECT * FROM transactions WHERE id = #{id}"
     transaction = SqlRunner.run(sql)
     result = Transaction.new(transaction.first)
     return result
