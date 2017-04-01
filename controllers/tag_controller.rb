@@ -14,7 +14,8 @@ get '/tags/new' do
 end
 
 post '/tags' do
-  Tag.new(params).save
+  @tag = Tag.new(params)
+  @tag.save
   erb(:"tags/confirmation_new")
 end
 

@@ -18,7 +18,7 @@ post '/merchants' do
   erb(:"merchants/confirmation_new")
 end
 
-post '/merchant/:id/delete' do
+post '/merchants/:id/delete' do
   Merchant.delete(params[:id])
-  redirect to("/merchants")
+  redirect to('/merchants')
 end
