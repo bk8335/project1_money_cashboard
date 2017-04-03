@@ -5,10 +5,14 @@ require_relative('../models/transaction.rb')
 require_relative( '../models/merchant.rb')
 require_relative( '../models/tag.rb')
 
-get '/home' do
-  @transactions = Transaction.all()
+get '/spending' do
   @total = Transaction.total_all_transactions()
   erb(:"transactions/home")
+end
+
+get '/spending/tag' do
+  @tag_spending = Transaction.total_by_tag()
+  erb(:"transactions/tag_spend")
 end
 
 get '/transactions' do
