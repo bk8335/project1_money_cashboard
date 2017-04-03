@@ -7,7 +7,7 @@
 <body>
   <nav>
     <ul>
-      <li><a href="/spending">Total Spending:</a> £<%=Transaction.total_all_transactions%></li>
+      <li><a href="/spending">Total spend:</a> £<%=Transaction.total_all_transactions.round(2)%></li>
       <li> <a href="/transactions"> All transactions</a></li>
       <li><a href="/merchants">All merchants</a></li>
       <li><a href="/tags">All tags</a></li>

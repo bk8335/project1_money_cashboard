@@ -69,7 +69,7 @@ class Transaction
     transactions = self.all()
     total = 0
     transactions.each do |transaction|
-      total -= transaction.value
+      total += transaction.value
     end
     return total
   end

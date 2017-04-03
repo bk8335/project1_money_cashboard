@@ -5,6 +5,8 @@
 <th>Tag name</th>
 <th></th>
 <th>Spend</th>
+<th></th>
+<th>Share of all spending</th>
 </tr>
 
 <% for tag in @list %>
@@ -12,6 +14,8 @@
   <td><%=tag['name']%></td>
   <td></td>
   <td>£<%=tag['sum']%></td>
+  <td></td>
+  <td><%= ((tag['sum'].to_f / Transaction.total_all_transactions) * 100).round(1) %>%</td>
   </tr>
 <% end %>
 </table>

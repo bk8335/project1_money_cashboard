@@ -11,6 +11,8 @@ get '/spending' do
 end
 
 get '/spending/tag' do
+  @total = Transaction.total_all_transactions()
+
   @tag_spending = Transaction.total_by_tag()
   #creating a list because:
     # the changes in the tag_spending array of hashes were not storing
