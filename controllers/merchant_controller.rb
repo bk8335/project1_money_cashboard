@@ -9,6 +9,7 @@ get '/merchants' do
 end
 
 get '/merchants/new' do
+  @merchants = Merchant.all()
   erb(:"merchants/new")
 end
 

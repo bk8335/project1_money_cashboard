@@ -1,14 +1,12 @@
 require_relative('../models/merchant')
 require_relative('../models/tag')
 require_relative('../models/transaction')
-require_relative('../models/total')
 require('pry')
 
 Transaction.delete_all
 Merchant.delete_all
 Tag.delete_all
 
-total = Total.new(0)
 
 merchant1 = Merchant.new('name' => 'Tesco')
 merchant2 = Merchant.new('name' => 'Footlights')

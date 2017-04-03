@@ -6,19 +6,19 @@
     <th></th>
     <th>Value</th>
     <th></th>
-    <th>Merchant(id)</th>
+    <th>Merchant name</th>
     <th></th>
-    <th>Tag(id)</th>
+    <th>Tag name</th>
   </tr>
-  <% @transactions.each do |transaction| %>
+  <% for transaction in @transactions %>
   <tr>
     <td><%=transaction.description%></td>
     <td></td>
     <td>£<%=transaction.value%></td>
     <td></td>
-    <td><%=transaction.merchant_id%></td>
+    <td><%=transaction.merchant.name%></td>
     <td></td>
-    <td><%=transaction.tag_id%></td>
+    <td><%=transaction.tag.name%></td>
     <td></td>
     <td>
       <form action="/transactions/<%=transaction.id%>/edit" method="get">

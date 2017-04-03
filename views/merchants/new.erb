@@ -9,3 +9,12 @@
   
 
 </form>
+
+<br>
+<br>
+<p>List of existing merchants:</p>
+<% @merchants.each do |merchant| %>
+<ul>
+  <li><%=merchant.name%></li>
+</ul>
+<% end %>

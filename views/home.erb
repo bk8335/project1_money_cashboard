@@ -1,7 +1,0 @@
-<h1>Welcome to Ben's Brilliant Budgeting Build!</h1>
-
-
-<% @transactions.each do |a_transaction| %>
-  <%@total.total_value += a_transaction.value %>
-<% end %>
-<h2> Total Spending: £<%=@total.total_value.round(2) %> </h2>

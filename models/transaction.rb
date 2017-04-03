@@ -1,5 +1,5 @@
 require_relative( '../db/sql_runner')
-require_relative( 'total')
+
 
 class Transaction
 
@@ -30,6 +30,18 @@ class Transaction
     SqlRunner.run(sql)
   end
 
+  def merchant()
+    sql = "SELECT * FROM merchants WHERE id = #{@merchant_id}"
+    result = SqlRunner.run(sql)
+    return Merchant.new(result.first)
+  end
+
+  def tag()
+    sql = "SELECT * FROM tags WHERE id = #{@tag_id}"
+    result = SqlRunner.run(sql)
+    return Tag.new(result.first)
+  end
+
   def self.find(id)
     sql = "SELECT * FROM transactions WHERE id = #{id}"
     transaction = SqlRunner.run(sql)
@@ -53,4 +65,19 @@ class Transaction
     SqlRunner.run(sql)
   end
 
+  def self.total_all_transactions
+    transactions = self.all()
+    total = 0
+    transactions.each do |transaction|
+      total += transaction.value
+    end
+    return total
+  end
+
+  # def self.total_by_tag
+  #   sql = "SELECT * FROM tags WHERE id = #{@tag_id}"
+  #   result = SqlRunner.run(sql)
+
+
+  # end
 end
