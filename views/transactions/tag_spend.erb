@@ -1,1 +1,17 @@
-<h3>Spending by tag: £<%=@tag_spending%></h3>
+<h3>Spending by tag</h3>
+
+<table>
+<tr>
+<th>Tag name</th>
+<th></th>
+<th>Spend</th>
+</tr>
+
+<% for tag in @list %>
+  <tr>
+  <td><%=tag['name']%></td>
+  <td></td>
+  <td>£<%=tag['sum']%></td>
+  </tr>
+<% end %>
+</table>

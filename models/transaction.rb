@@ -69,21 +69,14 @@ class Transaction
     transactions = self.all()
     total = 0
     transactions.each do |transaction|
-      total += transaction.value
+      total -= transaction.value
     end
     return total
   end
 
   def self.total_by_tag
-    # I want to add transaction.value for each tag_id
-    transactions = self.all()
-    total = 0
-    if @tag_id == 23
-      transactions.each do |transaction|
-        total += transaction.value
-      end
-    end
-    return total
+    sql = "SELECT tag_id, SUM(value) FROM transactions GROUP BY tag_id"
+    result = SqlRunner.run(sql)
   end
 
 end

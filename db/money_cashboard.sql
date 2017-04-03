@@ -1,4 +1,3 @@
--- DROP TABLE totals;
 DROP TABLE transactions;
 DROP TABLE merchants;
 DROP TABLE tags;
@@ -20,9 +19,3 @@ CREATE TABLE transactions (
   value NUMERIC,
   description VARCHAR(255)
 );
-
--- CREATE TABLE totals (
---   id SERIAL2 PRIMARY KEY,
---   total_value NUMERIC,
---   transaction_id INT2 REFERENCES transactions(id) ON DELETE CASCADE
--- );

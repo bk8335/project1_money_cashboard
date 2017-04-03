@@ -12,6 +12,17 @@ end
 
 get '/spending/tag' do
   @tag_spending = Transaction.total_by_tag()
+  #creating a list because:
+    # the changes in the tag_spending array of hashes were not storing
+    # so instead we had to create a new array of hashes (called list), and store that in the erb file
+  @list = []
+
+  for tag in @tag_spending
+     find_tag = Tag.find(tag['tag_id'])
+     tag['name'] = find_tag.name
+     @list.push(tag)
+  end
+
   erb(:"transactions/tag_spend")
 end
 
