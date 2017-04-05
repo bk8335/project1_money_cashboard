@@ -15,6 +15,8 @@ end
 get '/spending' do
   @total = Transaction.total_all_transactions()
   @total_formatted = CurrencyFormatter.separate_comma(@total.round(0))
+  @remain = Fund.first_balance()
+  @remain_formatted = CurrencyFormatter.separate_comma(@remain.round(0))
   erb(:"transactions/home")
 end
 

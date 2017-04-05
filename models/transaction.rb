@@ -67,10 +67,6 @@ class Transaction
     SqlRunner.run(sql)
   end
 
-  # @fund = Fund.get_first
-  # @fund.refund(params['value'])
-  # binding.pry
-
   def self.delete_all()
     sql = "DELETE FROM transactions"
     SqlRunner.run(sql)

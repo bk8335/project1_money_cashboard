@@ -20,7 +20,7 @@
     <td></td>
     <td><%=transaction.description%></td>
     <td></td>
-    <td>$<%=transaction.value.round(0)%></td>
+    <td>$<%=CurrencyFormatter.separate_comma(transaction.value.round(0))%></td>
     <td></td>
     <td><%=transaction.merchant.name%></td>
     <td></td>
