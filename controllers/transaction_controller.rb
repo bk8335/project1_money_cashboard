@@ -3,16 +3,30 @@ require('sinatra/contrib/all')
 require('pry')
 require_relative('../models/transaction.rb')
 require_relative( '../models/merchant.rb')
+require_relative( '../models/fund.rb')
 require_relative( '../models/tag.rb')
+require_relative( '../models/currency_formatter.rb')
+
+get '/spending/day' do
+  @total_by_day = Transaction.total_by_day
+  erb(:"transactions/day_spend")
+end
 
 get '/spending' do
   @total = Transaction.total_all_transactions()
+  @total_formatted = CurrencyFormatter.separate_comma(@total.round(0))
   erb(:"transactions/home")
+
+  # @remaining = Transaction.remaining_budget()
+  # if @remaining < 0
+  #   redirect to('/winner')
+  # else
+  #   erb(:"transactions/home")
+  # end
 end
 
 get '/spending/tag' do
   @total = Transaction.total_all_transactions()
-
   @tag_spending = Transaction.total_by_tag()
   #creating a list because:
     # the changes in the tag_spending array of hashes were not storing
@@ -42,12 +56,27 @@ get '/transactions/new' do
 end
 
 post '/transactions' do
-  Transaction.new(params).save
+  transaction = Transaction.new(params)
+  transaction.save
+  @fund = Fund.get_first
+  @fund.spend(params['value'])
+
+  #Fund.balance
+  # calculate remaining budget
+  # if less then 0
+  # redirect to /winner
+
   redirect to("/transactions")
 end
 
 post '/transactions/:id/delete' do
-  Transaction.delete(params[:id])
+  #Transaction.delete(params[:id])
+  transaction = Transaction.find(params[:id])
+  transaction.delete()
+
+  @fund = Fund.get_first()
+  @fund.refund(transaction.value)
+  binding.pry
   redirect to("/transactions")
 end
 
@@ -68,5 +97,7 @@ end
 post '/transactions/:id' do
   @transaction = Transaction.new(params)
   @transaction.update()
+  @fund = Fund.get_first
+  @fund.spend(params['value']) - @fund.spend(params['original_value'])
   redirect to("/transactions")
 end

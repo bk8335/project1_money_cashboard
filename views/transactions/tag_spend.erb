@@ -13,7 +13,7 @@
   <tr>
   <td><%=tag['name']%></td>
   <td></td>
-  <td>£<%=tag['sum']%></td>
+  <td>$<%=tag['sum'].to_i%></td>
   <td></td>
   <td><%= ((tag['sum'].to_f / Transaction.total_all_transactions) * 100).round(1) %>%</td>
   </tr>

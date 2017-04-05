@@ -1,3 +1,7 @@
-<h1>Welcome to Ben's Brilliant Budgeting Build!</h1>
+<h1>Brewster's budget tracker</h1>
 
-<h2> Total spend: £<%=@total.round(2) %> </h2>
+<h2> Total spend: $<%=@total_formatted %> </h2>
+
+<h2> Remaining budget: $<%=Fund.first_balance %></h2>
+
+<h3>You have spend <%=((@total / (@total + Fund.first_balance)) * 100).round(1) %>% of your budget</h3>

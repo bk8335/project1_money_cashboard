@@ -2,23 +2,32 @@
 <html>
 <head>
   <title>Benny's Brilliant Budgeting Build</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
 </head>
 <body>
   <nav>
     <ul>
-      <li><a href="/spending">Total spend:</a> £<%=Transaction.total_all_transactions.round(2)%></li>
-      <li> <a href="/transactions"> All transactions</a></li>
-      <li><a href="/merchants">All merchants</a></li>
-      <li><a href="/tags">All tags</a></li>
-    </ul>
-    <ul>
+      <li><a href="/welcome">Home</a></li>
+      <li><a href="/transactions">Total spend:</a> $<%=(Transaction.total_all_transactions / 1_000_000).round(1)%>m</li>
+      <li><a href="/spending">Remaining budget:</a> $<%=(Fund.first_balance().to_f/ 1_000_000).round(1)%>m</li>
       <li> <a href="/spending/tag">Spending by tag</a></li>
-      <li><a href="/transactions/new">Add a new transaction</a></li>
-      <li><a href="/merchants/new">Add a new merchant</a></li>
-      <li><a href="/tags/new">Add a new tag</a></li>
+      <li> <a href="/spending/day">Spending by day</a></li>
     </ul>
+      
   </nav>
   <%= yield %>
 </body>
+  <footer>
+  <ul>
+    <li> <a href="/transactions"> All transactions</a></li>
+    <li><a href="/merchants">All merchants</a></li>
+    <li><a href="/tags">All tags</a></li>
+  </ul>
+  <ul>
+    <li><a href="/transactions/new">Add a new transaction</a></li>
+    <li><a href="/merchants/new">Add a new merchant</a></li>
+    <li><a href="/tags/new">Add a new tag</a></li>
+  </ul>
+  </footer>
+
 </html>
