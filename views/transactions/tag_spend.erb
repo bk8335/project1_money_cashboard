@@ -3,18 +3,14 @@
 <table>
 <tr>
 <th>Tag name</th>
-<th></th>
 <th>Spend</th>
-<th></th>
-<th>Share of all spending</th>
+<th>Share of spending</th>
 </tr>
 
 <% for tag in @list %>
   <tr>
   <td><%=tag['name']%></td>
-  <td></td>
   <td>$<%=CurrencyFormatter.separate_comma(tag['sum'].to_i)%></td>
-  <td></td>
   <td><%= ((tag['sum'].to_f / Transaction.total_all_transactions) * 100).round(1) %>%</td>
   </tr>
 <% end %>

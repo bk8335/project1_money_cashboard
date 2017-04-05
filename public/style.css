@@ -1,8 +1,108 @@
 body {
-  font-family: Arial;
+  font-family: Lato, Arial;
+  padding-bottom: 6rem;
+  background-image: url("https://studio87blog.files.wordpress.com/2016/01/white-marble-2048.jpg");
+  background-size: 100%
+}
+
+img {
+  position: center;
+  border-radius: 20px;
+}
+
+li a {
+  text-align: center;
+}
+
+nav {
+  width: 100%;
+  float: left;
+  background-color: rgba(221,221,221, 0.5);
+  font-family: 'Raleway', sans-serif;
+  text-transform: uppercase;
+}
+
+nav li {
+  display: inline;
+  list-style: none;
+  width: 800px;
+  margin: 0 auto;
+  padding-right: 6rem;
+}
+
+footer li {
+  display: inline;
+  width: 100%;
+  text-align: center;
 }
 
 footer {
   position: fixed;
   bottom: 0;
+  width: 100%;
+  background-color: rgba(221,221,221, 1);
+  font-family: 'Raleway', sans-serif;
+  text-transform: uppercase;
 }
+
+#yield {
+  padding: 10px;
+  padding-top: 50px;
+}
+
+#footer1 li {
+  flex-grow: 2;
+  flex-basis: 33%
+  flex: none;
+
+}
+
+#footer1 {
+  display: flex;
+}
+
+#footer2 li {
+  flex-grow: 2;
+}
+
+#footer2 {
+  display: flex;
+}
+
+table {
+  /*border-collapse: collapse;*/
+  background-color: rgba(221,221,221, 0.5);
+  width: 100%;
+}
+
+table, th, td {
+  vertical-align: center;
+}
+
+th {
+  font-weight: bold;
+  font-size: 18px;
+  height: 35px;
+  color: white;
+  background-color: rgba(255,215,0, 0.7)
+
+}
+
+td {
+  text-align: center;
+}
+
+th, td {
+  padding: 15px;
+  text-align: center;
+  border-bottom: 4px solid #dddddd
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2
+}
+
+tr:hover {
+  background-color: rgb(255,215,0)
+}
+

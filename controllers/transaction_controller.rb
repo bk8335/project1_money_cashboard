@@ -17,7 +17,7 @@ get '/spending' do
   @total_formatted = CurrencyFormatter.separate_comma(@total.round(0))
   @remain = Fund.first_balance()
   @remain_formatted = CurrencyFormatter.separate_comma(@remain.round(0))
-  erb(:"transactions/home")
+  erb(:"transactions/tracker")
 end
 
 get '/spending/tag' do

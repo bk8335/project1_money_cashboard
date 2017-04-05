@@ -4,24 +4,16 @@
 <table>
   <tr>
     <th>Date</th>
-    <th></th>
     <th>Value of spending</th>
-    <th></th>
     <th>Share of spending</th>
-    <th></th>
     <th>Number of purchases</th>
-    <th></th>
   </tr>
 <%for something in @total_by_day  %>
   <tr>
     <td><%=something['transaction_date']%></td>
-    <td></td>
     <td>$<%=something['sum'].to_i.to_s.chars.to_a.reverse.each_slice(3).map(&:join).join(",").reverse%></td>
-    <td></td>
     <td><%=((something['sum'].to_f/Transaction.total_all_transactions) * 100).round(1) %>%</td>
-    <td></td>
     <td><%=something['count']%></td>
-    <td></td>
   </tr>
 <%end%>
 

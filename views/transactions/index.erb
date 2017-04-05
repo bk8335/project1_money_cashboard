@@ -3,36 +3,27 @@
 <table>
   <tr>
     <th>Date</th>
-    <th></th>
     <th>Description</th>
-    <th></th>
     <th>Value</th>
-    <th></th>
     <th>Merchant name</th>
-    <th></th>
     <th>Tag name</th>
-    <th></th>
     <th>Share of all spending</th>
+    <th></th>
+    <th></th>
   </tr>
   <% for transaction in @transactions %>
   <tr>
     <td><%=transaction.transaction_date%></td>
-    <td></td>
     <td><%=transaction.description%></td>
-    <td></td>
     <td>$<%=CurrencyFormatter.separate_comma(transaction.value.round(0))%></td>
-    <td></td>
     <td><%=transaction.merchant.name%></td>
-    <td></td>
     <td><%=transaction.tag.name%></td>
-    <td></td>
     <td><%=(transaction.value / Transaction.total_all_transactions * 100).round(1) %>%</td>
     <td>
       <form action="/transactions/<%=transaction.id%>/edit" method="get">
       <input type="submit" value="edit">
       </form>
     </td>
-    <td></td>
     <td>
       <form action="/transactions/<%=transaction.id%>/delete" method="post">
       <input type="submit" value="delete"/>
@@ -41,17 +32,14 @@
   </tr>
   <tr></tr>
   <% end %>
-  <td></td>
-  <td></td>
-  <td></td>
+  <td><b>TOTAL</b></td>
   <td></td>
   <td><b>$<%=(Transaction.total_all_transactions / 1_000_000).round(2)%>m</b></td>
   <td></td>
   <td></td>
-  <td></td>
-  <td></td>
-  <td></td>
   <td><b>100%</b></td>
+  <td></td>
+  <td></td>
 </table>
 
 

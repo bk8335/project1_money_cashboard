@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Benny's Brilliant Budgeting Build</title>
-  <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
+  <title>Brewster's Millions</title>
+  <link rel="stylesheet" type="text/css" href="/style.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lato">
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 </head>
 <body>
   <nav>
@@ -15,19 +17,25 @@
     </ul>
       
   </nav>
+  <div id="yield">
   <%= yield %>
+  </div>
 </body>
   <footer>
+  <div id="footer1">
   <ul>
-    <li> <a href="/transactions"> All transactions</a></li>
+    <li><a href="/transactions"> All transactions</a></li>
     <li><a href="/merchants">All merchants</a></li>
     <li><a href="/tags">All tags</a></li>
   </ul>
+  </div>
+  <div id="footer2">
   <ul>
     <li><a href="/transactions/new">Add a new transaction</a></li>
     <li><a href="/merchants/new">Add a new merchant</a></li>
     <li><a href="/tags/new">Add a new tag</a></li>
   </ul>
   </footer>
+  </div>
 
 </html>

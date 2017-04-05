@@ -11,5 +11,8 @@ get '/welcome' do
   erb(:welcome)
 end
 
+get '/' do
+  redirect to("/welcome")
+end
 
 
