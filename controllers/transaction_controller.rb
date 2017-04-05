@@ -16,13 +16,6 @@ get '/spending' do
   @total = Transaction.total_all_transactions()
   @total_formatted = CurrencyFormatter.separate_comma(@total.round(0))
   erb(:"transactions/home")
-
-  # @remaining = Transaction.remaining_budget()
-  # if @remaining < 0
-  #   redirect to('/winner')
-  # else
-  #   erb(:"transactions/home")
-  # end
 end
 
 get '/spending/tag' do
@@ -61,22 +54,19 @@ post '/transactions' do
   @fund = Fund.get_first
   @fund.spend(params['value'])
 
-  #Fund.balance
-  # calculate remaining budget
-  # if less then 0
-  # redirect to /winner
+  if @fund.balance < 0
+    redirect to("/winner")
+  end
 
   redirect to("/transactions")
 end
 
 post '/transactions/:id/delete' do
-  #Transaction.delete(params[:id])
   transaction = Transaction.find(params[:id])
   transaction.delete()
 
   @fund = Fund.get_first()
   @fund.refund(transaction.value)
-  binding.pry
   redirect to("/transactions")
 end
 
@@ -98,6 +88,7 @@ post '/transactions/:id' do
   @transaction = Transaction.new(params)
   @transaction.update()
   @fund = Fund.get_first
-  @fund.spend(params['value']) - @fund.spend(params['original_value'])
+  @fund.refund(params['original_value'])
+  @fund.spend(params['value'])
   redirect to("/transactions")
 end

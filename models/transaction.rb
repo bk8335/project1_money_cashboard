@@ -85,19 +85,6 @@ class Transaction
     return total
   end
 
-  def self.remaining_budget
-    start_point = 30_000_000
-    spend = self.total_all_transactions
-    budget = start_point - spend
-    return budget
-  end
-
-  def self.inheritance
-    if self.remaining_budget < 0
-      self.remaining_budget = 300_000_000
-    end
-  end
-
   def self.total_by_tag
     sql = "SELECT tag_id, SUM(value) FROM transactions GROUP BY tag_id"
     result = SqlRunner.run(sql)
