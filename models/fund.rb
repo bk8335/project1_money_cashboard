@@ -18,13 +18,6 @@ class Fund
     SqlRunner.run(sql)
   end
 
-  # def balance
-  #   sql = "SELECT balance FROM funds where id = #{@id}"
-  #   result = SqlRunner.run(sql).first
-  #   fund = Fund.new(result)
-  #   return fund.balance
-  # end
-
   def spend(amount)
     @balance = @balance - amount.to_i
     sql = "UPDATE funds SET balance = #{@balance} WHERE id = #{@id}"

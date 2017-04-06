@@ -3,8 +3,8 @@
 <form action="/transactions/<%=@transaction.id%>" method="post">
  
 <p>
-<label for="transaction-description"> Description: </label>
-<input id="transaction-description" type="text" name="description" value="<%=@transaction.description%>"/>
+  <label for="transaction-description"> Description: </label>
+  <input id="transaction-description" type="text" name="description" value="<%=@transaction.description%>"/>
 </p>
 
 <p>Select a merchant
@@ -31,13 +31,13 @@
 
 
 <p>
-<label for="transaction-value"> Value: </label>
-<input id="transaction-value" name="value" type="number" min="0" step="1000000" value="<%=@transaction.value%>"/>
+  <label for="transaction-value"> Value: </label>
+  <input id="transaction-value" name="value" type="number" min="0" step="1000000" value="<%=@transaction.value%>"/>
 </p>
 
 <p>
-<label for="transaction-value"> </label>
-<input id="transaction-value" name="original_value" type="hidden" min="0" step="1000000" value="<%=@transaction.value%>"/>
+  <label for="transaction-value"> </label>
+  <input id="transaction-value" name="original_value" type="hidden" min="0" step="1000000" value="<%=@transaction.value%>"/>
 </p>
 
 <p>

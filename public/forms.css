@@ -1,0 +1,22 @@
+input {
+  width: 100%;
+  padding: 5px 10px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+input:focus {
+  border: 3px solid rgb(221,221,221);
+  outline: none;
+}
+
+select {
+  width: 100%;
+  padding: 5px 10px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  background-color: white;
+}
