@@ -1,11 +1,12 @@
 <h1>List of all merchants</h1>
 
 <% @merchants.each do |merchant|  %>
-  <p> Name: <%= merchant.name  %> </p>
+  <p> <b>Name:</b> <%= merchant.name  %> </p>
   <form action="/merchants/<%=merchant.id%>/delete" method="post">
-  <input type="submit" value="delete" />
+  <input type="submit" id="button_two" value="delete" />
   </form>
   <hr/>
 <% end %>
 
-<button> <a href="/merchants/new">Add a new merchant</a> </button>
+<form action="/merchants/new" method="link">
+<input type="submit" VALUE="Add a new merchant" id="button"/>

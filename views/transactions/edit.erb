@@ -1,4 +1,4 @@
-<h3>edit your transaction</h3>
+<h3>Edit your transaction</h3>
 
 <form action="/transactions/<%=@transaction.id%>" method="post">
  
@@ -36,7 +36,7 @@
 </p>
 
 <p>
-<label for="transaction-value"> Original Value: </label>
+<label for="transaction-value"> </label>
 <input id="transaction-value" name="original_value" type="hidden" min="0" step="1000000" value="<%=@transaction.value%>"/>
 </p>
 
@@ -45,6 +45,6 @@
   <input id="date" name="transaction_date" type="date">
 </p>
 
-<input type="submit" value="Update the transaction"/>
+<input type="submit" id="button" value="Update the transaction"/>
 
 </form>

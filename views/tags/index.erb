@@ -1,13 +1,13 @@
 <h1> List of all tags </h1>
 
 <% @tags.each do |tag| %>
-  <p> Name: <%= tag.name  %> </p>
-  <p> ID: <%= tag.id  %>
+  <p> <b>Name:</b> <%= tag.name  %> </p>
   <form action="/tags/<%=tag.id%>/delete" method="post">
-    <input type="submit" value="delete" />
+    <input type="submit" id="button_two" value="delete" />
   </form>
 
   <hr/>
 <% end %>
 
-<button><a href="/tags/new">Add a new tag</a></button>
+<form action="/tags/new" method="link">
+<input type="submit" VALUE="Add a new tag" id="button"/>

@@ -1,15 +1,17 @@
-<h3> Add a new category/tag </h3>
+<h3> Add a new tag </h3>
 
 <form action="/tags" method="post">
 
 <label for="new-tag"> New tag: </label>
 <input id="new-tag" type="text" name="name"/>
 
-<input type="submit" value="Add a new tag"/>
+<input type="submit" id="button" value="Add a new tag"/>
 
 </form>
 <br>
 <br>
+
+<p>List of existing tags:</p>
 
 <% @tags.each do |tag| %>
 <ul>

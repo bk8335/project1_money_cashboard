@@ -35,20 +35,22 @@ tag3.save
 tag4.save
 tag5.save
 
-transaction1 = Transaction.new('merchant_id' => merchant1.id, 'tag_id' => tag1.id, 'value' => 500_000, 'description' => 'a month in the presidential suite', 'transaction_date' => '2017-04-04' )
-transaction1.save
-
 transaction2 = Transaction.new('merchant_id' => merchant2.id, 'tag_id' => tag2.id, 'value' => 200_000, 'description' => 'bar tab', 'transaction_date' => '2017-04-03')
 transaction2.save
 
 transaction3 = Transaction.new('merchant_id' => merchant2.id, 'tag_id' => tag2.id, 'value' => 500_000, 'description' => 'tequila', 'transaction_date' => '2017-04-03')
 transaction3.save
 
+transaction3.description = "jagerbombs"
+transaction3.update
+
+transaction1 = Transaction.new('merchant_id' => merchant1.id, 'tag_id' => tag1.id, 'value' => 500_000, 'description' => 'a month in the presidential suite', 'transaction_date' => '2017-04-04' )
+transaction1.save
+
 transaction4 = Transaction.new('merchant_id' => merchant3.id, 'tag_id' => tag3.id, 'value' => 6_000_000, 'description' => 'chartering a yacht for a month', 'transaction_date' => '2017-04-05')
 transaction4.save
 
-transaction3.description = "jagerbombs"
-transaction3.update
+
 
 fund1.spend(Transaction.total_all_transactions)
 

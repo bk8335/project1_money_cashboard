@@ -21,12 +21,12 @@
     <td><%=(transaction.value / Transaction.total_all_transactions * 100).round(1) %>%</td>
     <td>
       <form action="/transactions/<%=transaction.id%>/edit" method="get">
-      <input type="submit" value="edit">
+      <input id="button" type="submit" value="edit">
       </form>
     </td>
     <td>
       <form action="/transactions/<%=transaction.id%>/delete" method="post">
-      <input type="submit" value="delete"/>
+      <input id="button" type="submit" value="delete"/>
       </form>
     </td>
   </tr>
@@ -43,5 +43,5 @@
 </table>
 
 
-<button> <a href="/transactions/new">Add a new transaction</a>
-</button>
+<form action="/transactions/new" method="link">
+<input type="submit" VALUE="Add a new transaction" id="button"/>
